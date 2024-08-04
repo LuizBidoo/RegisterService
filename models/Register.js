@@ -12,7 +12,7 @@ const Register = db.define('register', {
     date: {
         type: Sequelize.STRING
     },
-    tele: {
+    tel: {
         type: Sequelize.STRING
     },
 })

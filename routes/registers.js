@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const Register = require('../models/Register')
+const postRegister = require('../controllers/postRegisterController')
 
 // rota GET teste
 router.get('/test', (req, res) => {
@@ -8,16 +8,6 @@ router.get('/test', (req, res) => {
 }) 
 
 // rota POST para vagas
-router.post('/add', (req, res) => {
-  let {name, email, date, tele} = req.body // dados vindos do body
-  Register.create({
-    name,
-    email,
-    date,
-    tele
-  })
-  .then(() => res.redirect('/')) // volta pra home
-  .catch(err => console.log('Erro ao criar cadastro', err))
-})
+router.post('/add', postRegister)
 
 module.exports = router
